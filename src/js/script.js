@@ -76,3 +76,16 @@ window.onload = ()=> {
         })
     })
 }
+
+let showHidePassword = document.querySelectorAll('.showHide')
+
+showHidePassword.forEach(opt => {
+    opt.addEventListener('click', (e)=> {
+        opt.classList.toggle('active')
+        if(opt.classList.contains('active')) {
+            opt.closest('.form-control').querySelector('input').type = 'text'
+        }else if(!opt.classList.contains('active')) {
+            opt.closest('.form-control').querySelector('input').type = 'password'
+        }
+    })
+})
