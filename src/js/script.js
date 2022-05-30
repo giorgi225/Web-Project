@@ -89,3 +89,19 @@ showHidePassword.forEach(opt => {
         }
     })
 })
+
+let allInputs = document.querySelectorAll('input')
+if(allInputs) {
+    allInputs.forEach(input => {
+        input.addEventListener('focus', ()=> {
+            allInputs.forEach(input => {
+                if(input.closest('.form-input')) {
+                    input.closest('.form-input').classList.remove('active')
+                }
+            })
+            if(input.closest('.form-input')) {
+                input.closest('.form-input').classList.add('active')
+            }
+        })
+    })
+}

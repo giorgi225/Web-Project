@@ -17,7 +17,7 @@
                         </div>
                         <div class="form-control w-100">
                             <div class="form-input no-pd">
-                                <input type="password" name="password" placeholder="Password">
+                                <input class="pass" type="password" name="password" placeholder="Password">
                                 <div class="showHide">
                                     <div class="icon icon-show">
                                     <svg width="24" height="23" fill="none" xmlns="http://www.w3.org/2000/svg">

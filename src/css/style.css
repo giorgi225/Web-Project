@@ -223,12 +223,55 @@
     font-weight: bold;
 }
 
-.form-usr .form-input.active {
-    border: 1px solid red;
+.error-text {
+    font-size: 12px;
+    margin: 5px 0px 0px 1px;
+    color: #ea5959;
+}
+
+.form-usr .form-input.active  {
+    border:1px solid #747f8c;
+    box-shadow: 0px 0px 3px rgb(207 209 216 / 30%);
+}
+
+.form-usr .form-input.error  {
+    border:1px solid #eb5050 !important;
+    box-shadow: 0px 0px 3px rgb(207 209 216 / 30%) !important;
+}
+
+.form-usr .form-input.error.active  {
+    border:1px solid #ff0000 !important;
+    box-shadow: 0px 0px 3px rgb(207 209 216 / 30%) !important;
+}
+
+.form-usr .form-input.error input::placeholder {
+    color: rgba(255, 0, 0, 0.449) !important;
+}
+
+.form-usr .form-input.success  {
+    border:1px solid #5deb50 !important;
+    box-shadow: 0px 0px 3px rgb(207 209 216 / 30%) !important;
+}
+
+.form-usr .form-input.success.active  {
+    border:1px solid #45be19 !important;
+    box-shadow: 0px 0px 3px rgb(207 209 216 / 30%) !important;
+}
+
+.form-usr .form-input.success input::placeholder {
+    color: rgba(95, 209, 60, 0.449) !important;
+}
+.form-usr .form-input.success input {
+    color: #45be19 !important;
+}
+
+.form-usr .form-input.error input {
+    color: red !important;
 }
 
 .form-usr .form-input {
     user-select: none;
+    border: 1px solid transparent;
 }
 
 .form-usr .form-input input {
@@ -237,6 +280,7 @@
     border: none;
     background: none;
     outline: none;
+    font-family: unset;
 }
 
 .showHide {

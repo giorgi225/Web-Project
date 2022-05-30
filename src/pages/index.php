@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="welcome-right">
-                    <img src="src/assets/undraw_static_assets_rpm6.svg" alt="">
+                    <img src="../assets/undraw_static_assets_rpm6.svg" alt="">
                 </div>
             </div>
         </div>

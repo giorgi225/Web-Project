@@ -1,5 +1,148 @@
 <?php
-     $documentTitle = 'EduMonk - Log in'
+    $pdo = new PDO('mysql:host=localhost;port=3306;dbname=Education-Website', 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    $statement = $pdo->prepare('SELECT * FROM users');
+    $statement-> execute();
+    $users = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+     $documentTitle = 'EduMonk - Log in';
+
+     $username = '';
+     $email = '';
+     $password = '';
+     $password2 = '';
+
+     $usernameErrorClass = '';
+     $emailErrorClass = '';
+     $passwordErrorClass = '';
+     $password2ErrorClass = '';
+
+     $usernameErrorText = '';
+     $emailErrorText = '';
+     $passwordErrorText = '';
+
+     if($_SERVER["REQUEST_METHOD"] === "POST"){
+
+        $username = $_POST["username"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $password2 = $_POST["password2"];
+
+        if(!$username) {
+            $usernameErrorText = 'Username is required';
+            $usernameErrorClass = 'error';
+        }else {
+            if (!preg_match ("/^[a-zA-Z0-9]+$/", $username)) {  
+                $usernameErrorText = 'Only alphabets Numbers and Whitespace allowed';
+                $usernameErrorClass = "error";  
+            }else if(strlen($username) <= 6) {
+                $usernameErrorText = 'Username must be at least 7 charachters';
+                $usernameErrorClass = "error";  
+            }
+            else {
+                $usernameErrorText = '';
+                $usernameErrorClass = "success";
+            }
+        }
+
+        if(!$email) {
+            $emailErrorClass = 'error';
+            $emailErrorText = 'E-mail is required';
+        }else {
+            $pattern = "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^";  
+            if (!preg_match ($pattern, $email) ){  
+                $emailErrorText = 'E-mail is not valid';
+                $emailErrorClass = "error";
+            }else {
+                if(count($users) === 0) {
+                    $emailErrorText = '';
+                    $emailErrorClass = "success";
+                }
+                else {
+                    $stmt = $pdo->prepare("SELECT * FROM users WHERE email=?");
+                    $stmt->execute([$email]); 
+                    $userEmail = $stmt->fetch();
+                    if ($userEmail) {
+                        $emailErrorText = 'E-mail already exists';
+                        $emailErrorClass = 'error';
+                    } else {
+                        $emailErrorText = '';
+                        $emailErrorClass = 'success';
+                    } 
+                    // $check_email = $pdo->query("SELECT * FROM users WHERE email='$email'");
+                    // if (!$check_email) {
+                        // $emailErrorText = 'E-mail already exists';
+                        // $emailErrorClass = 'error';
+                    //     echo $email;
+                    // }else {
+                        // $emailErrorText = '';
+                        // $emailErrorClass = 'success';
+                    // }
+
+
+                }
+            }
+        }
+
+        if(!$password) {
+            $passwordErrorClass = 'error';
+            $passwordErrorText = 'Password is required';
+            $password2ErrorClass = '';
+            $password2ErrorText = '';
+        }else {
+            if(strlen($password) < 8) {
+                $passwordErrorClass = 'error';
+                $passwordErrorText = 'Password must be at least 8 characters';
+                $password2ErrorClass = '';
+                $password2ErrorText = '';
+            }else if(!preg_match('@[0-9]@', $password)) {
+                $passwordErrorClass = 'error';
+                $passwordErrorText = 'Password must contain at least one number';
+                $password2ErrorClass = '';
+                $password2ErrorText = '';
+            }else if(!preg_match('@[A-Z]@', $password)) {
+                $passwordErrorClass = 'error';
+                $passwordErrorText = 'Password must contain at least one uppercase letter';
+                $password2ErrorClass = '';
+                $password2ErrorText = '';
+            }else if(!preg_match('@[^\w]@', $password)) {
+                $passwordErrorClass = 'error';
+                $passwordErrorText = 'Password must contain at least one special character';
+                $password2ErrorClass = '';
+                $password2ErrorText = '';
+            }else {
+                $passwordErrorClass = 'success';
+                $passwordErrorText = '';
+                if(!$password2) {
+                    $password2ErrorClass = 'error';
+                    $password2ErrorText = 'Please repeat password';
+                }else {
+                    if($password2 !== $password) {
+                        $password2ErrorClass = 'error';
+                        $password2ErrorText = 'Passwords does not matches';
+                    }else {
+                        $password2ErrorClass = 'success';
+                        $password2ErrorText = '';
+                    }
+                }
+            }
+        }
+
+        if($usernameErrorClass === "success" && $emailErrorClass === "success" && $passwordErrorClass=== "success" && $password2ErrorClass === "success") {
+
+            $statement = $pdo->prepare("INSERT INTO users (username, email, password)
+                                       VALUES(:username, :email, :password)");
+                                       
+            $statement->bindValue(':username', $username);
+            $statement->bindValue(':email', $email);
+            $statement->bindValue(':password', hash('sha512', $password));
+
+            $statement->execute();
+
+            echo $emailErrorClass;
+        }
+     }
 ?>
 <?php include "../common/header.php" ?>
 
@@ -7,22 +150,24 @@
         <div class="container">
             <div class="bx-light w-100 fx-centerX fx-column">
                 <h3 class="form-title">Register</h3>
-                <form class="form-usr" action="#">
+                <form class="form-usr" action="#" method="POST">
                     <div class="form__inner fx-column mw-350">
 
                         <div class="form-control w-100">
-                            <div class="form-input no-pd">
-                                <input type="text" name="username" placeholder="Username" autocomplete="off">
+                            <div class="form-input no-pd <?php echo $usernameErrorClass ?>">
+                                <input type="text" name="username" placeholder="Username" autocomplete="off" value="<?php echo $username ?>">
                             </div>
+                            <p class="error-text"><?php echo $usernameErrorText ?></p>
                         </div>
                         <div class="form-control w-100">
-                            <div class="form-input no-pd">
-                                <input type="text" name="email" placeholder="e-mail" autocomplete="off">
+                            <div class="form-input no-pd <?php echo $emailErrorClass?>">
+                                <input type="text" name="email" placeholder="E-mail" autocomplete="off" value="<?php echo $email ?>">
                             </div>
+                            <p class="error-text"><?php echo $emailErrorText ?></p>
                         </div>
                         <div class="form-control w-100">
-                            <div class="form-input no-pd">
-                                <input type="password" name="password" placeholder="Password">
+                            <div class="form-input no-pd <?php echo $passwordErrorClass?>">
+                                <input data-pass="pass" class="pass" type="password" name="password" placeholder="Password" value="<?php echo $password ?>">
                                 <div class="showHide">
                                     <div class="icon icon-show">
                                     <svg width="24" height="23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,10 +186,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <p class="error-text"><?php echo $passwordErrorText ?></p>
                         </div>
                         <div class="form-control w-100">
-                            <div class="form-input no-pd">
-                                <input type="password" name="password2" placeholder="Repeat Password">
+                            <div class="form-input no-pd <?php echo $password2ErrorClass ?>">
+                                <input data-pass="pass2" type="password" name="password2" placeholder="Repeat Password" value="<?php echo $password2 ?>">
                                 <div class="showHide">
                                     <div class="icon icon-show">
                                     <svg width="24" height="23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,6 +209,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <p class="error-text"><?php echo $password2ErrorText ?></p>
                         </div>
 
                     </div>
