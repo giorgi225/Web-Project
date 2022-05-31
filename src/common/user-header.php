@@ -35,7 +35,21 @@
     <title><?php echo $documentTitle ?></title>
 </head>
 <body>
-
+    <div class="modul-container logout-modul" data-modul="logout">
+        <div class="modul-container__inner">
+            <p class="text">Do you really want to log out ? </p>
+            <div class="answer-cont fx-center">
+                <div class="answer" id="no">
+                    <button>No</button>
+                </div>
+                <div class="answer">
+                    <form class="w-100" method="GET">
+                        <button type="submit" name="logout">Yes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="header">
         <div class="container">
             <div class="header__inner fx-center-max">
@@ -114,17 +128,14 @@
                                 <li class="user-nav-item">
                                     <a class="user-nav-link" href="#">Settings</a>
                                 </li>
-                                <form class="w-100" method="GET">
-                                    <li class="user-nav-item">
-                                        <button type="submit" name="logout" class="user-nav-link fx-center" href="#">
-                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M14.1667 6.66667L12.9917 7.84167L14.3083 9.16667H7.5V10.8333H14.3083L12.9917 12.15L14.1667 13.3333L17.5 10L14.1667 6.66667ZM4.16667 4.16667H10V2.5H4.16667C3.25 2.5 2.5 3.25 2.5 4.16667V15.8333C2.5 16.75 3.25 17.5 4.16667 17.5H10V15.8333H4.16667V4.16667Z" fill="black"/>
-                                            </svg>
-                                            Log Out
-                                        </button>
-                                    </li>
-                                </form>
-
+                                <li class="user-nav-item">
+                                    <button class="user-nav-link fx-center modul" href="#" id="logout">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.1667 6.66667L12.9917 7.84167L14.3083 9.16667H7.5V10.8333H14.3083L12.9917 12.15L14.1667 13.3333L17.5 10L14.1667 6.66667ZM4.16667 4.16667H10V2.5H4.16667C3.25 2.5 2.5 3.25 2.5 4.16667V15.8333C2.5 16.75 3.25 17.5 4.16667 17.5H10V15.8333H4.16667V4.16667Z" fill="black"/>
+                                        </svg>
+                                        Log Out
+                                    </button>
+                                </li>
                             </ul>
                         </div>
                     </div>

@@ -61,34 +61,38 @@ function dropdowns() {
 window.onload = ()=> {
     let dropdowns = document.querySelectorAll('.dropdown')
     
-    dropdowns.forEach(dropdown => {
-        let dropdownList = dropdown.querySelector('.dropdown-list')
-        let dropdownListLink = dropdown.querySelectorAll('.dropdown-list .dropdown-link')
-        dropdownListLink.forEach(link => {
-            if(link.classList.contains('active')) {
-                dropdownList.style.display = 'flex'
-                currentHeight = dropdownList.scrollHeight
-                setTimeout(()=> {
-                    dropdownList.style.height = currentHeight + 'px'
-                    dropdown.classList.add('active')
-                },150)
-            }
+    if(dropdowns) {
+        dropdowns.forEach(dropdown => {
+            let dropdownList = dropdown.querySelector('.dropdown-list')
+            let dropdownListLink = dropdown.querySelectorAll('.dropdown-list .dropdown-link')
+            dropdownListLink.forEach(link => {
+                if(link.classList.contains('active')) {
+                    dropdownList.style.display = 'flex'
+                    currentHeight = dropdownList.scrollHeight
+                    setTimeout(()=> {
+                        dropdownList.style.height = currentHeight + 'px'
+                        dropdown.classList.add('active')
+                    },150)
+                }
+            })
         })
-    })
+    }
 }
 
 let showHidePassword = document.querySelectorAll('.showHide')
 
-showHidePassword.forEach(opt => {
-    opt.addEventListener('click', (e)=> {
-        opt.classList.toggle('active')
-        if(opt.classList.contains('active')) {
-            opt.closest('.form-control').querySelector('input').type = 'text'
-        }else if(!opt.classList.contains('active')) {
-            opt.closest('.form-control').querySelector('input').type = 'password'
-        }
+if(showHidePassword) {
+    showHidePassword.forEach(opt => {
+        opt.addEventListener('click', (e)=> {
+            opt.classList.toggle('active')
+            if(opt.classList.contains('active')) {
+                opt.closest('.form-control').querySelector('input').type = 'text'
+            }else if(!opt.classList.contains('active')) {
+                opt.closest('.form-control').querySelector('input').type = 'password'
+            }
+        })
     })
-})
+}
 
 let allInputs = document.querySelectorAll('input')
 if(allInputs) {
@@ -103,5 +107,27 @@ if(allInputs) {
                 input.closest('.form-input').classList.add('active')
             }
         })
+    })
+}
+
+let allModuls = document.querySelectorAll('.modul')
+if(allModuls) {
+    allModuls.forEach(modul => {
+        modul.addEventListener('click', ()=> {
+            let modulId = modul.id
+            if(modulId) {
+                let currentModulCont = document.querySelector(`[data-modul=${modulId}]`)
+                if(currentModulCont) {
+                    currentModulCont.classList.add('active')
+                }
+            }
+        })
+    })
+}
+
+if(document.querySelector("#no")) {
+    document.querySelector('#no').addEventListener('click', ()=> {
+        let logoutModul = document.querySelector("[data-modul='logout']")
+        logoutModul.classList.remove('active')
     })
 }
