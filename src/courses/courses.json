@@ -1,0 +1,123 @@
+[
+    {
+        "id" : 1,
+        "src" : "../assets/courses-imgs/DSA.jpg",
+        "title" : "Data Structures and Algorithms",
+        "desc" : "self Paced Course",
+        "stars" : 4,
+        "rate" : "1.0",
+        "newPrice": "$145.99",
+        "oldPrice": "$200.99" 
+    },
+    {
+        "id" : 2,
+        "src" : "../assets/courses-imgs/DBMS.png",
+        "title" : "OS DBMS CN for SDE Interview",
+        "desc" : "SDE Theory I",
+        "stars" : 5,
+        "rate" :"4.9",
+        "newPrice": "$341.99",
+        "oldPrice": "$441.99" 
+    },
+    {
+        "id" : 3,
+        "src" : "../assets/courses-imgs/algorithms.png",
+        "title" : "Data Structures & Algorithms",
+        "desc" : "Foundation",
+        "stars" : 4,
+        "rate" : "4.3",
+        "newPrice": "$259.99",
+        "oldPrice": "$301.99" 
+    },
+    {
+        "id" : 4,
+        "src" : "../assets/courses-imgs/java.jpg",
+        "title" : "Java Foundation",
+        "desc" : "Self Paced Course",
+        "stars" : 4,
+        "rate" : "4.3",
+        "newPrice": "$150.99",
+        "oldPrice": "$250.99" 
+    },
+    {
+        "id" : 5,
+        "src" : "../assets/courses-imgs/machine.png",
+        "title" : "Machine Learning with Python",
+        "desc" : "ML Foundation",
+        "stars" : 5,
+        "rate" : "4.9",
+        "newPrice": "$450.99",
+        "oldPrice": "$550.99" 
+    },
+    {
+        "id" : 6,
+        "src" : "../assets/courses-imgs/javaFundamentals.jpg",
+        "title" : "Funnamentals of Java",
+        "desc" : "Java Collections 1",
+        "stars" : 5,
+        "rate" : "4.7",
+        "newPrice": null,
+        "oldPrice": "$455.99" 
+    },
+    {
+        "id" : 7,
+        "src" : "../assets/courses-imgs/javaFundamentals.jpg",
+        "title" : "Funnamentals of Java 2",
+        "desc" : "Java Collections 2",
+        "stars" : 5,
+        "rate" : "4.7",
+        "newPrice": "$455.99",
+        "oldPrice": "$555.99" 
+    },
+    {
+        "id" : 8,
+        "src" : "../assets/courses-imgs/html.png",
+        "title" : "Html Crash Course",
+        "desc" : "Fundamentals of Html",
+        "stars" : 4,
+        "rate" : "4.3",
+        "newPrice": "$60.99",
+        "oldPrice": "$120.99" 
+    },
+    {
+        "id" : 9,
+        "src" : "../assets/courses-imgs/css.png",
+        "title" : "Css Crash Course",
+        "desc" : "Fundamentals of Css",
+        "stars" : 4,
+        "rate" : "4.3",
+        "newPrice": "$40.99",
+        "oldPrice": "$80.99" 
+    },
+    {
+        "id" : 10,
+        "src" : "../assets/courses-imgs/js.png",
+        "title" : "Javascript Crash Course",
+        "desc" : "Fundamentals of Javascript",
+        "stars" : 5,
+        "rate" : "4.7",
+        "newPrice": null,
+        "oldPrice": "$180.99" 
+    },
+    {
+        "id" : 11,
+        "src" : "../assets/courses-imgs/node.png",
+        "title" : "NodeJs Crash Course",
+        "desc" : "Fundamentals of NodeJs",
+        "stars" : 5,
+        "rate" : "5.0",
+        "newPrice": null,
+        "oldPrice": "$490.99" 
+    },
+    {
+        "id" : 12,
+        "src" : "../assets/courses-imgs/php.png",
+        "title" : "Funnamentals of Php",
+        "desc" : "Php Foundation",
+        "stars" : 5,
+        "rate" : "5.0",
+        "newPrice": "$440.99",
+        "oldPrice": "$500.99" 
+    }
+
+]

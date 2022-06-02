@@ -1,10 +1,6 @@
 <?php
-    $pdo = new PDO('mysql:host=localhost;port=3306;dbname=Education-Website', 'root', '');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    $statement = $pdo->prepare('SELECT * FROM users');
-    $statement-> execute();
-    $users = $statement->fetchAll(PDO::FETCH_ASSOC);
+    include "../common/database.php";
+
     $documentTitle = 'EduMonk - Log in';
 
     $email = "";
@@ -35,13 +31,17 @@
                             $emailErrorClass = 'success';
                         
                             session_start();
-                            $_SESSION['id'] = $userEmail["id"];
-                            $_SESSION['username'] = $userEmail["username"];
-                            if(isset($_SESSION["id"])) {
-                                $_SESSION["id"] = $userEmail["id"];
+                            $token = openssl_random_pseudo_bytes(128);
+                            $token = bin2hex($token);
+                            
+                            $_SESSION['token'] = $token;
+                            if(isset($_SESSION["token"])) {
+                                $_SESSION["token"] = $token;
                             }
-                            setcookie('id', $_SESSION["id"], time()+ 65000,'/');
+                            setcookie('token', $token, time()+ 65000,'/');
                             setcookie('username', $_SESSION["username"], time()+ 65000,'/');
+                            $statement = $pdo->prepare("UPDATE users SET token=? WHERE email=?");
+                            $statement->execute([$token, $email]);
                             header("Location: index.php");
                         } else {
                             $emailErrorClass = 'error';
@@ -118,6 +118,7 @@
 
                     </div>
                     <button type="submit" class="submit-btn w-100">Log In</button>
+                    <p class="w-100 fx-centerX">doesn't have an account ? <a href="register.php">Register</a></p>
                 </form>
             </div>
         </div>

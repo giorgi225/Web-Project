@@ -131,3 +131,24 @@ if(document.querySelector("#no")) {
         logoutModul.classList.remove('active')
     })
 }
+
+let scopeLinks = document.querySelectorAll('.scopeLink')
+
+if(scopeLinks) {
+    scopeLinks.forEach(link => {
+        link.addEventListener('click', (e)=> {
+            let y = window.scrollY
+            localStorage.setItem('yPos', y);
+        })
+    })
+}
+
+document.addEventListener('click', (e)=> {
+    if(!e.target.closest('.scopeLink')) {
+        localStorage.removeItem('yPos');
+    }else {
+        let y = window.scrollY
+        localStorage.setItem('yPos', y);
+    }
+})
+window.scrollTo(0, localStorage.getItem('yPos'))

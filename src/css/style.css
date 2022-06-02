@@ -431,6 +431,7 @@
 }
 
 .modul-container__inner {
+    position: relative;
     padding: 30px 50px;
     background: #FFFFFF;
     border-radius: 10px;
@@ -473,4 +474,146 @@
 
 .answer-cont .answer form button {
     background: rgb(227, 30, 30) !important;
+}
+
+.courses__filter {
+    margin-bottom: 20px;
+}
+
+.courses__filter a {
+    padding: 5px 10px;
+    background: transparent;
+    border: 2px solid var(--green);
+    font-size: 15px;
+    border-radius: 4px;
+    font-weight: 400;
+    color: var(--green-hover);
+    margin-right: 10px;
+    transition: .1s;
+}
+
+.courses__filter a:hover {
+    background: var(--green);
+    color: #FFFFFF;
+    transition: .2s;
+}
+
+.courses__filter a.active {
+    background: var(--green);
+    color: #FFFFFF;
+}
+
+.courses__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    grid-gap: 30px;
+}
+
+.course-link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%;
+    border-radius: 4px;
+    padding: 5px 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+
+.course-link .free{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    border: 2px solid var(--green);
+    color: var(--green-hover);
+    background: #FFFFFF;
+    z-index: 9999999 !important;
+}
+
+.course-img {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #efefef;
+    width: 100%;
+    height: 150px;
+}
+
+.course-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.course-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-main);
+    margin: 5px 0px;
+}
+
+.course-desc {
+    color: rgb(87, 86, 93);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.course-rate {
+    position: relative;
+    margin: 4px 0px;
+}
+
+.course-rate .stars {
+    margin-right: 5px;
+}
+
+.course-rate .icon {
+    margin-right: 3px;
+}
+
+.course-rate .icon path {
+    fill: #bbbbbb;
+}
+
+.course-rate .icon.active path {
+    fill: var(--green-hover);
+}
+
+.course-rate .rate {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-main);
+}
+
+.course-price .new,
+.course-price .old {
+    font-size: 14px;
+    color: var(--color-main);
+    margin-right: 4px;
+}
+
+.course-price .old {
+    color: #bbbbbb;
+}
+
+.view-course {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 2px solid var(--green);
+    background: transparent;
+    margin-top: 10px;
+    color: var(--green-hover);
+    transition:0.1s;
+    cursor: pointer;
+}
+
+.view-course:hover {
+    background: var(--green);
+    color: #FFFFFF;
+    transition:0.2s;
 }

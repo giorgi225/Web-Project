@@ -1,14 +1,20 @@
 <?php 
+
     if($_SERVER["REQUEST_METHOD"] === "GET") {
         if(isset($_GET["logout"])) {
+            $pdo = new PDO('mysql:host=localhost;port=3306;dbname=education-website', 'root', '');
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            $statement = $pdo->prepare("UPDATE users SET token=? WHERE token=?");
+            $statement->execute([null, $_COOKIE["token"]]);
             session_destroy();
             if (isset($_COOKIE['username'])) {
                 unset($_COOKIE['username']);
                 setcookie('username', '', time() - 3600, '/'); // empty value and old timestamp
             }
-            if (isset($_COOKIE['id'])) {
-                unset($_COOKIE['id']);
-                setcookie('id', '', time() - 3600, '/'); // empty value and old timestamp
+            if (isset($_COOKIE['token'])) {
+                unset($_COOKIE['token']);
+                setcookie('token', '', time() - 3600, '/'); // empty value and old timestamp
             }
             header("location: index.php");
 
@@ -105,8 +111,7 @@
                             </svg>
                             <p class="user-username">
                                 <?php
-                                echo strlen($_SESSION["username"]) > 10 ? substr($_SESSION["username"],0,10)."..." : $_SESSION["username"];
-                    
+                                echo strlen($user["username"]) > 10 ? substr($user["username"],0,10)."..." : $user["username"];
                                 ?>
                             </p>
                             <svg width="24" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">

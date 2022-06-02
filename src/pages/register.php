@@ -1,10 +1,5 @@
 <?php
-    $pdo = new PDO('mysql:host=localhost;port=3306;dbname=education-website', 'root', '');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    $statement = $pdo->prepare('SELECT * FROM users');
-    $statement-> execute();
-    $users = $statement->fetchAll(PDO::FETCH_ASSOC);
+    include "../common/database.php";
 
      $documentTitle = 'EduMonk - Log in';
 
@@ -205,6 +200,7 @@
 
                     </div>
                     <button type="submit" class="submit-btn w-100">Register</button>
+                    <p class="w-100 fx-centerX">Already have an account ? <a href="login.php">login</a></p>
                 </form>
             </div>
         </div>
