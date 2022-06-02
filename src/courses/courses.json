@@ -7,7 +7,8 @@
         "stars" : 4,
         "rate" : "1.0",
         "newPrice": "$145.99",
-        "oldPrice": "$200.99" 
+        "oldPrice": "$200.99",
+        "lorem":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maxime itaque eum veritatis"
     },
     {
         "id" : 2,
@@ -17,7 +18,8 @@
         "stars" : 5,
         "rate" :"4.9",
         "newPrice": "$341.99",
-        "oldPrice": "$441.99" 
+        "oldPrice": "$441.99",
+        "lorem":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maxime itaque eum veritatis"
     },
     {
         "id" : 3,
@@ -27,7 +29,8 @@
         "stars" : 4,
         "rate" : "4.3",
         "newPrice": "$259.99",
-        "oldPrice": "$301.99" 
+        "oldPrice": "$301.99" ,
+        "lorem":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maxime itaque eum veritatis"
     },
     {
         "id" : 4,
@@ -37,7 +40,8 @@
         "stars" : 4,
         "rate" : "4.3",
         "newPrice": "$150.99",
-        "oldPrice": "$250.99" 
+        "oldPrice": "$250.99",
+        "lorem":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maxime itaque eum veritatis"
     },
     {
         "id" : 5,
@@ -47,7 +51,8 @@
         "stars" : 5,
         "rate" : "4.9",
         "newPrice": "$450.99",
-        "oldPrice": "$550.99" 
+        "oldPrice": "$550.99",
+        "lorem":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maxime itaque eum veritatis"
     },
     {
         "id" : 6,
@@ -57,7 +62,8 @@
         "stars" : 5,
         "rate" : "4.7",
         "newPrice": null,
-        "oldPrice": "$455.99" 
+        "oldPrice": "$455.99",
+        "lorem":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maxime itaque eum veritatis"
     },
     {
         "id" : 7,
@@ -67,7 +73,8 @@
         "stars" : 5,
         "rate" : "4.7",
         "newPrice": "$455.99",
-        "oldPrice": "$555.99" 
+        "oldPrice": "$555.99",
+        "lorem":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maxime itaque eum veritatis"
     },
     {
         "id" : 8,
@@ -77,7 +84,8 @@
         "stars" : 4,
         "rate" : "4.3",
         "newPrice": "$60.99",
-        "oldPrice": "$120.99" 
+        "oldPrice": "$120.99",
+        "lorem":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maxime itaque eum veritatis" 
     },
     {
         "id" : 9,
@@ -87,7 +95,8 @@
         "stars" : 4,
         "rate" : "4.3",
         "newPrice": "$40.99",
-        "oldPrice": "$80.99" 
+        "oldPrice": "$80.99",
+        "lorem":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maxime itaque eum veritatis"
     },
     {
         "id" : 10,
@@ -97,7 +106,8 @@
         "stars" : 5,
         "rate" : "4.7",
         "newPrice": null,
-        "oldPrice": "$180.99" 
+        "oldPrice": "$180.99",
+        "lorem":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maxime itaque eum veritatis"
     },
     {
         "id" : 11,
@@ -107,7 +117,8 @@
         "stars" : 5,
         "rate" : "5.0",
         "newPrice": null,
-        "oldPrice": "$490.99" 
+        "oldPrice": "$490.99",
+        "lorem":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maxime itaque eum veritatis" 
     },
     {
         "id" : 12,
@@ -117,7 +128,8 @@
         "stars" : 5,
         "rate" : "5.0",
         "newPrice": "$440.99",
-        "oldPrice": "$500.99" 
+        "oldPrice": "$500.99",
+        "lorem":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate maxime itaque eum veritatis" 
     }
 
 ]

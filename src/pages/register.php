@@ -206,4 +206,5 @@
         </div>
     </section>
 
+<?php include "../common/footer.php" ?>
 <?php include "../common/doctype.php" ?>

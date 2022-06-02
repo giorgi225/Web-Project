@@ -22,7 +22,6 @@ li {
 body {
     font-family: 'Work Sans', sans-serif;
     scroll-behavior: smooth;
-    height: 500vh;
 }
 
 .fx-center {
@@ -48,10 +47,10 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .container {
-    position: relative;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
 }
 
 .fx-column {
